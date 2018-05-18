@@ -27,10 +27,10 @@ io.of('/').on('connection', function(socket)
 	});
 
 	// 클라이언트로부터의 메시지가 수신되면
-	socket.on('sendinput', function(data) 
+	socket.on('sendinput', function(id, data) 
 	{
-		console.log('sendinput');
-		socket.broadcast.emit('receiveinput', data);
+		console.log('sendinput ' + id);
+		socket.broadcast.emit('receiveinput', id, data);
 	});
 
 	// force client disconnect from server
